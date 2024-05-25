@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //움직임
     private Rigidbody playerRigidbody;
     private PlayerController playerController;
 
