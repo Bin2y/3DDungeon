@@ -1055,6 +1055,7 @@ GameObject:
   - component: {fileID: 326035915}
   - component: {fileID: 326035916}
   - component: {fileID: 326035917}
+  - component: {fileID: 326035918}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1181,6 +1182,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8bb757b3-fac4-4cee-ab31-cae376e49f0a
     m_ActionName: Player/ViewToggle[/Keyboard/v]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 326035916}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 19291c2f-f673-4ed3-8446-3fdefd5393bd
+    m_ActionName: Player/Look[/Mouse/delta]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1211,6 +1228,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+--- !u!114 &326035918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326035911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8512eaafa90e04447b46575a388f03a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camCurXRot: 0
+  minXLook: -85
+  maxXLook: 85
+  lookSensitivity: 0.2
+  cameraContainer: {fileID: 1440129308}
 --- !u!1001 &328150457
 PrefabInstance:
   m_ObjectHideFlags: 0

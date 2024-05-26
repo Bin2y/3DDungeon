@@ -22,12 +22,6 @@ public class PlayerMovement : MonoBehaviour
         playerController.OnMoveEvent += Move;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         ApplyMovement(moveDirection);

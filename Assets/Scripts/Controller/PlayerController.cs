@@ -11,9 +11,8 @@ public class PlayerController : MonoBehaviour
     public event Action<Vector2> OnLookEvent;
 
     Vector2 curMovementInput;
+    Vector2 mouseDelta;
 
-
-    Vector2 moveDirection;
     public void OnMove(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Performed)
@@ -25,6 +24,12 @@ public class PlayerController : MonoBehaviour
             curMovementInput = Vector2.zero;
         }
         CallMoveEvent(curMovementInput);
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        mouseDelta = context.ReadValue<Vector2>();
+        OnLookEvent(mouseDelta);
     }
 
     private void CallMoveEvent(Vector2 direction)
