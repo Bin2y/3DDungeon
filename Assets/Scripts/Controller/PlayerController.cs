@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
+    public event Action OnUseItemEvent;
 
     Vector2 curMovementInput;
     Vector2 mouseDelta;
@@ -32,6 +33,19 @@ public class PlayerController : MonoBehaviour
     {
         mouseDelta = context.ReadValue<Vector2>();
         CallLookEvent(mouseDelta);
+    }
+
+    public void OnUseItem(InputAction.CallbackContext context)
+    {
+        if( context.phase == InputActionPhase.Started && CharacterManager.Instance.Player.itemData != null)
+        {
+            CallUseItemEvent();
+        }
+    }
+
+    private void CallUseItemEvent()
+    {
+        OnUseItemEvent?.Invoke();
     }
 
     private void CallMoveEvent(Vector2 direction)

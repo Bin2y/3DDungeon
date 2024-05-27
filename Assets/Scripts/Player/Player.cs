@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private PlayerController controller;
+    public PlayerCondition condition;
 
     public ItemData itemData;
 
