@@ -10,10 +10,19 @@ public class CurrentItemSlot : MonoBehaviour
 
     private void Update()
     {
-        if(CharacterManager.Instance.Player.itemData != null)
+        ExpressMainSlotUI();
+    }
+
+    private void ExpressMainSlotUI()
+    {
+        if (CharacterManager.Instance.Player.itemData != null)
         {
             itemdata = CharacterManager.Instance.Player.itemData;
             itemSpriteRenderer.sprite = itemdata.icon;
+        }
+        else
+        {
+            itemSpriteRenderer.sprite = null;
         }
     }
 
