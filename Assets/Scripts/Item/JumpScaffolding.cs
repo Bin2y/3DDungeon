@@ -13,7 +13,6 @@ public class JumpScaffolding : MonoBehaviour
         {
             _rigidbody = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 dir = transform.up;
-            Debug.Log(dir);
             _rigidbody.AddForce(dir * power, ForceMode.Impulse);
         }
     }
