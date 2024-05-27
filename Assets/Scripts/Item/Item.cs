@@ -10,4 +10,11 @@ public class Item : MonoBehaviour, IInteractable
         return $"{itemdata.itemName}\n{itemdata.itemDesc}";
     }
 
+    public void OnInteract()
+    {
+        CharacterManager.Instance.Player.itemData = itemdata;
+        CharacterManager.Instance.Player.addItem?.Invoke();
+        Destroy(gameObject);
+    }
+
 }

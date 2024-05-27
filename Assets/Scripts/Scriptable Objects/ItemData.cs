@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Enumeration;
@@ -10,6 +11,21 @@ public enum ItemType
     Resource,
     Interactable
 }
+
+public enum ConsumableType
+{
+    Health,
+    Hunger,
+    Speed
+}
+
+[Serializable]
+public class ItemDataConsumable
+{
+    public ConsumableType type;
+    public float value;
+}
+
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
 {
@@ -21,5 +37,8 @@ public class ItemData : ScriptableObject
 
     [Header("Equip")]
     public GameObject equipPrefab;
+
+    [Header("Consumable")]
+    public ItemDataConsumable[] consumables;
 
 }
