@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody playerRigidbody;
     private PlayerController playerController;
 
-    private Vector3 moveDirection;
+    private Vector2 moveDirection;
     [SerializeField] private float moveSpeed;
 
     private void Awake()
@@ -29,13 +29,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move(Vector2 dir)
     {
+        moveDirection = dir;
+    }
+    private void ApplyMovement(Vector2 dir)
+    {
         Vector3 direction = transform.forward * dir.y + transform.right * dir.x;
         direction *= moveSpeed;
         direction.y = playerRigidbody.velocity.y;
-        moveDirection = direction;
-    }
-    private void ApplyMovement(Vector3 dir)
-    {
-        playerRigidbody.velocity = dir;
+        playerRigidbody.velocity = direction;
     }
 }

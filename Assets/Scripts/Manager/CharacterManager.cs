@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class CharacterManager : Singleton<CharacterManager>
 {
-    public GameObject Player;
+    [SerializeField] private Player player;
+    public Player Player
+    {
+        get { return player; }
+        set { player = value; }
+    }
 }
