@@ -53,7 +53,6 @@ public class Interaction : MonoBehaviour
     {
         promptText.gameObject.SetActive(true);
         //인터랙트 가능한 오브젝트에서 프롬포트 정보를 가져온다
-        promptText.text = curInteractable
-            .GetInteractPrompt();
+        promptText.text = curInteractable.GetInteractPrompt();
     }
 }
