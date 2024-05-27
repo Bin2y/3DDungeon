@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "\uC810\uD504\uB300"
   itemDesc: "\uC660\uC9C0 \uB192\uC774 \uB730\uAC70 \uAC19\uB2E4."
-  type: 3
+  type: 4
   dropPrefab: {fileID: 0}
   equipPrefab: {fileID: 0}
+  consumables: []

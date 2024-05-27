@@ -37,7 +37,7 @@ public class Interaction : MonoBehaviour
             RaycastHit hit;
             
             //Debug.Log(LayerMask.NameToLayer("Interactable"));
-            if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask) && (layerMask == 1 << LayerMask.NameToLayer("Interactable")))
+            if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
             {
                 curInteractGameObject = hit.collider.gameObject;
                 curInteractable = hit.collider.GetComponent<IInteractable>();

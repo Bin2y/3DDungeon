@@ -12,9 +12,12 @@ public class Item : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        CharacterManager.Instance.Player.itemData = itemdata;
-        CharacterManager.Instance.Player.addItem?.Invoke();
-        Destroy(gameObject);
+        if(itemdata.type != ItemType.Object)
+        {
+            CharacterManager.Instance.Player.itemData = itemdata;
+            CharacterManager.Instance.Player.addItem?.Invoke();
+            Destroy(gameObject);
+        }
     }
 
 }

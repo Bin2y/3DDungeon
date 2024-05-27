@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: "\uD584\uBC84\uAC70."
   itemDesc: "\uBA39\uC73C\uBA74 \uC18D\uB3C4\uAC00 \uC62C\uB77C\uAC04\uB2E4."
   type: 1
+  icon: {fileID: 21300000, guid: 5a380cfc20028ef47b398fc3ae246054, type: 3}
   dropPrefab: {fileID: 0}
   equipPrefab: {fileID: 0}
   consumables:
