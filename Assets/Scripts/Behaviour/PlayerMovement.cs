@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     public PlayerCondition playerCondition;
     public float jumpStamina;
 
+    //더블점프
+    public int jumpCnt = 0;
+
     //플랫폼위에서의 움직임
     public MovingPlatform movingPlatform;
     public Vector3 platformMove;
@@ -34,14 +37,7 @@ public class PlayerMovement : MonoBehaviour
         playerController.OnJumpEvent += Jump;
     }
 
-    private void Jump()
-    {
-        if (IsGrounded())
-        {
-            playerRigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
-            playerCondition.UseStamina(jumpStamina);
-        }
-    }
+
 
     private void FixedUpdate()
     {
@@ -70,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
             new Ray(transform.position + (-transform.right * 0.2f) + transform.up * 0.01f, Vector3.down)
         };
 
+
         for (int i = 0; i < rays.Length; i++)
         {
             if (Physics.Raycast(rays[i], 1f, groundLayerMask))
@@ -80,9 +77,50 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
+    private void Jump()
+    {
+        if (IsGrounded())
+        {
+            playerRigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+            playerCondition.UseStamina(jumpStamina);
+        }
+    }
+
+    private void DoubleJump()
+    {
+        switch(jumpCnt)
+        {
+            case 0:
+                Jump();
+                jumpCnt++;
+                break;
+            case 1:
+                playerRigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+                playerCondition.UseStamina(jumpStamina);
+                jumpCnt++;
+                break;
+            default:
+                jumpCnt = 0; break;
+        }
+    }
+
+
+
+    public void SubDoubleJump()
+    {
+        playerController.OnJumpEvent -= Jump;
+        playerController.OnJumpEvent += DoubleJump;
+    }
+
+    public void CancleSubDoubleJump()
+    {
+        playerController.OnJumpEvent -= DoubleJump;
+        playerController.OnJumpEvent += Jump;
+    }
+
     private void OnCollisionStay(Collision collision)
     {
-        if(collision.gameObject.tag == ("MovingPlatform"))
+        if (collision.gameObject.tag == ("MovingPlatform"))
         {
             movingPlatform = collision.gameObject.GetComponent<MovingPlatform>();
             platformMove = movingPlatform.GetPlatformMoving();

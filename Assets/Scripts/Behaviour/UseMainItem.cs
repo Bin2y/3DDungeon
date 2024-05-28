@@ -13,6 +13,7 @@ public class UseMainItem : MonoBehaviour
     private ItemData itemData;
 
     private float boosterDuration = 3f;
+    private float doubleJumpDuration = 5f;
 
     private void Awake()
     {
@@ -41,9 +42,19 @@ public class UseMainItem : MonoBehaviour
                 case ConsumableType.Speed:
                     StartCoroutine(Boost(itemData.consumables[i].value));
                     break;
+                case ConsumableType.DoubleJump:
+                    StartCoroutine(DoubleJumpEvent());
+                    break;
             }
         }
         CharacterManager.Instance.Player.itemData = null;
+    }
+
+    private IEnumerator DoubleJumpEvent()
+    {
+        playerMovement.SubDoubleJump();
+        yield return new WaitForSeconds(doubleJumpDuration);
+        playerMovement.CancleSubDoubleJump();
     }
 
     //TODO : 부스트기능이랑 아이템 사용 기능이랑 분리해보기?
