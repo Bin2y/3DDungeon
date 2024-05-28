@@ -1139,6 +1139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1440129308}
+  - {fileID: 393810426}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 174.823, z: 0}
 --- !u!136 &326035914
@@ -1226,7 +1227,19 @@ MonoBehaviour:
     m_ActionId: e83f1be5-8272-4753-a4ff-50cc9a7ee4d8
     m_ActionName: Player/Interaction[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 326035916}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnViewToggle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8bb757b3-fac4-4cee-ab31-cae376e49f0a
     m_ActionName: Player/ViewToggle[/Keyboard/v]
   - m_PersistentCalls:
@@ -1308,6 +1321,10 @@ MonoBehaviour:
   maxXLook: 85
   lookSensitivity: 0.2
   cameraContainer: {fileID: 1440129308}
+  camPosX3rd: 1
+  camPosY3rd: 1
+  camPosZ3rd: -2
+  isThridPerson: 0
 --- !u!114 &326035919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,6 +1589,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4887460767432162760, guid: 30c819560420f824da028f3502f83728, type: 3}
   m_PrefabInstance: {fileID: 361662980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &393810426 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+  m_PrefabInstance: {fileID: 995918243}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &423488635
 PrefabInstance:
@@ -3694,6 +3716,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &995918243
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 326035913}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
+      propertyPath: m_Name
+      value: Donut_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20fc9c5e71adb0443bff79e76235884b, type: 3}
 --- !u!1001 &1025349613
 PrefabInstance:
   m_ObjectHideFlags: 0

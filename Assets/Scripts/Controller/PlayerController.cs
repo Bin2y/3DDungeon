@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -10,23 +11,24 @@ public class PlayerController : MonoBehaviour
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
     public event Action OnUseItemEvent;
+    public event Action OnViewToggleEvent;
 
     Vector2 curMovementInput;
     Vector2 mouseDelta;
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Performed)
+        if (context.phase == InputActionPhase.Performed)
         {
             curMovementInput = context.ReadValue<Vector2>();
             CallMoveEvent(curMovementInput);
         }
-        else if(context.phase == InputActionPhase.Canceled)
+        else if (context.phase == InputActionPhase.Canceled)
         {
             curMovementInput = Vector2.zero;
             CallMoveEvent(curMovementInput);
         }
-        
+
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -37,10 +39,24 @@ public class PlayerController : MonoBehaviour
 
     public void OnUseItem(InputAction.CallbackContext context)
     {
-        if( context.phase == InputActionPhase.Started && CharacterManager.Instance.Player.itemData != null)
+        if (context.phase == InputActionPhase.Started && CharacterManager.Instance.Player.itemData != null)
         {
             CallUseItemEvent();
         }
+    }
+    public void OnViewToggle(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            CallViewToggleEvent();
+        }
+    }
+
+    private void CallViewToggleEvent()
+    {
+        if (OnViewToggleEvent == null)
+            Debug.Log("비어있음");
+        OnViewToggleEvent?.Invoke();
     }
 
     private void CallUseItemEvent()
