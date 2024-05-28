@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public event Action<Vector2> OnLookEvent;
     public event Action OnUseItemEvent;
     public event Action OnViewToggleEvent;
+    public event Action OnJumpEvent;
 
     Vector2 curMovementInput;
     Vector2 mouseDelta;
@@ -50,6 +51,19 @@ public class PlayerController : MonoBehaviour
         {
             CallViewToggleEvent();
         }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            CallJumpEvent();
+        }
+    }
+
+    private void CallJumpEvent()
+    {
+        OnJumpEvent?.Invoke();
     }
 
     private void CallViewToggleEvent()

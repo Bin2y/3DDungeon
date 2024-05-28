@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     [SerializeField] public float moveSpeed;
 
+    public LayerMask groundLayerMask;
+    [SerializeField] public float jumpPower;
+
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -20,6 +23,16 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerController.OnMoveEvent += Move;
+        playerController.OnJumpEvent += Jump;
+    }
+
+    private void Jump()
+    {
+        if (IsGrounded())
+        {
+            Debug.Log("점프");
+            playerRigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+        }
     }
 
     private void FixedUpdate()
@@ -37,5 +50,25 @@ public class PlayerMovement : MonoBehaviour
         direction *= moveSpeed;
         direction.y = playerRigidbody.velocity.y;
         playerRigidbody.velocity = direction;
+    }
+
+    private bool IsGrounded()
+    {
+        Ray[] rays = new Ray[4]
+        {
+            new Ray(transform.position + (transform.forward * 0.2f) + transform.up * 0.01f, Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.2f) + transform.up * 0.01f, Vector3.down),
+            new Ray(transform.position + (transform.right * 0.2f) + transform.up * 0.01f, Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.2f) + transform.up * 0.01f, Vector3.down)
+        };
+
+        for (int i = 0; i < rays.Length; i++)
+        {
+            if (Physics.Raycast(rays[i], 1f, groundLayerMask))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
