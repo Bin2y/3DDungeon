@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public event Action OnUseItemEvent;
     public event Action OnViewToggleEvent;
     public event Action OnJumpEvent;
+    public event Action<bool> OnWallWalkEvent;
 
     Vector2 curMovementInput;
     Vector2 mouseDelta;
@@ -59,6 +60,23 @@ public class PlayerController : MonoBehaviour
         {
             CallJumpEvent();
         }
+    }
+
+    public void OnWallWalk(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            CallWallWalkEvent(true);
+        }
+        else if(context.phase == InputActionPhase.Canceled)
+        {
+            CallWallWalkEvent(false);
+        }
+    }
+
+    private void CallWallWalkEvent(bool canWallWalk)
+    {
+        OnWallWalkEvent?.Invoke(canWallWalk);  
     }
 
     private void CallJumpEvent()

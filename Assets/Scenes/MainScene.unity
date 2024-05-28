@@ -327,7 +327,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326035911}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4034a46ac3903b04da0ca294ce5c21a5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -464,6 +464,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0a8f6310-4f20-4bfd-9975-53b5a6b7eca0
     m_ActionName: Player/UseMainItem[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 326035916}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnWallWalk
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8b780e30-af35-4ec1-af46-a95bd0b7f97b
+    m_ActionName: Player/WallWa;k[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -596,8 +612,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   climbSpeed: 2
   climbStamina: 25
-  isHang: 0
-  isClimb: 0
+  canHang: 0
+  canClimb: 0
   maxDistance: 1
   layerMask:
     serializedVersion: 2
