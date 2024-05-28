@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,10 +22,23 @@ public enum ConsumableType
     DoubleJump
 }
 
+public enum EquipableType
+{
+    speed,
+    jumpPower
+}
+
 [Serializable]
 public class ItemDataConsumable
 {
     public ConsumableType type;
+    public float value;
+}
+
+[Serializable]
+public class ItemDataEquipable
+{
+    public EquipableType type;
     public float value;
 }
 
@@ -43,4 +57,7 @@ public class ItemData : ScriptableObject
 
     [Header("Consumable")]
     public ItemDataConsumable[] consumables;
+
+    [Header("Equipable")]
+    public ItemDataEquipable[] equipables;
 }

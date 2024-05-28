@@ -14,7 +14,20 @@ public class Item : MonoBehaviour, IInteractable
     {
         if(itemdata.type != ItemType.Object)
         {
-            CharacterManager.Instance.Player.itemData = itemdata;
+            switch(itemdata.type)
+            {
+                case ItemType.Equipable:
+                    //데이터가 있다면 장착해제
+                    if(CharacterManager.Instance.Player.equipData != null)
+                    {
+                        CharacterManager.Instance.Player.UnEquipItem?.Invoke();
+                        //TODO : dropItem
+                    }
+                    CharacterManager.Instance.Player.equipData = itemdata; break;
+                default:
+                    CharacterManager.Instance.Player.itemData = itemdata; break;
+            }
+            CharacterManager.Instance.Player.equipItem?.Invoke();
             CharacterManager.Instance.Player.addItem?.Invoke();
             Destroy(gameObject);
         }

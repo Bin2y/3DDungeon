@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public MovingPlatform movingPlatform;
     public Vector3 platformMove;
 
+    
+
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
