@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     public PlayerCondition playerCondition;
     public float jumpStamina;
 
+    //플랫폼위에서의 움직임
+    public MovingPlatform movingPlatform;
+    public Vector3 platformMove;
+
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -53,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 direction = transform.forward * dir.y + transform.right * dir.x;
         direction *= moveSpeed;
         direction.y = playerRigidbody.velocity.y;
-        playerRigidbody.velocity = direction;
+        playerRigidbody.velocity = direction + platformMove;
     }
 
     private bool IsGrounded()
@@ -74,5 +78,23 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.tag == ("MovingPlatform"))
+        {
+            movingPlatform = collision.gameObject.GetComponent<MovingPlatform>();
+            platformMove = movingPlatform.GetPlatformMoving();
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == ("MovingPlatform"))
+        {
+            movingPlatform = null;
+            platformMove = Vector3.zero;
+        }
     }
 }

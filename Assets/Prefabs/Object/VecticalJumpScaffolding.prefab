@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6509499110360943518}
   - component: {fileID: 8518183311905262526}
   - component: {fileID: 3201698761248719847}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: VecticalJumpScaffolding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5968898668681461099}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.11, y: 0.06, z: 19.62}
   m_LocalScale: {x: 3, y: 0.1, z: 3}
   m_ConstrainProportionsScale: 0
