@@ -9,9 +9,14 @@ public class PlayerCondition : MonoBehaviour
 {
     public UICondition uiCondition;
 
+
     Condition health { get { return uiCondition.health; } }
     Condition stamina { get { return uiCondition.stamina; } }
 
+    private void Update()
+    {
+        stamina.Add(stamina.passiveValue * Time.deltaTime);
+    }
 
     public void Heal(float amount)
     {

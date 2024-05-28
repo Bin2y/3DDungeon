@@ -12,13 +12,17 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     [SerializeField] public float moveSpeed;
 
+    //점프
     public LayerMask groundLayerMask;
     [SerializeField] public float jumpPower;
+    public PlayerCondition playerCondition;
+    public float jumpStamina;
 
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
         playerController = GetComponent<PlayerController>();
+        playerCondition = GetComponent<PlayerCondition>();
     }
     void Start()
     {
@@ -30,8 +34,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded())
         {
-            Debug.Log("점프");
             playerRigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+            playerCondition.UseStamina(jumpStamina);
         }
     }
 

@@ -1091,6 +1091,7 @@ GameObject:
   - component: {fileID: 326035918}
   - component: {fileID: 326035920}
   - component: {fileID: 326035921}
+  - component: {fileID: 326035922}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1320,6 +1321,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   jumpPower: 100
+  playerCondition: {fileID: 0}
+  jumpStamina: 10
 --- !u!114 &326035918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1387,6 +1390,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec3eefb32c269641bfa012066a3df15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &326035922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326035911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e75d326d687c44aafc9e14e3b8ba36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiCondition: {fileID: 0}
 --- !u!1001 &328150457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4004,6 +4020,7 @@ MonoBehaviour:
   maxValue: 100
   curValue: 0
   startValue: 100
+  passiveValue: 3
   uibar: {fileID: 479918270}
 --- !u!114 &1060861846
 MonoBehaviour:
@@ -7315,6 +7332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2017185605}
   - component: {fileID: 2017185606}
+  - component: {fileID: 2017185607}
   m_Layer: 5
   m_Name: Condition
   m_TagString: Untagged
@@ -7369,6 +7387,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2017185607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017185604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a735972c860beb54d87a5d1d2fbe6dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 2077447563}
+  stamina: {fileID: 1060861845}
 --- !u!1 &2077447559
 GameObject:
   m_ObjectHideFlags: 0
@@ -7461,6 +7493,7 @@ MonoBehaviour:
   maxValue: 100
   curValue: 0
   startValue: 100
+  passiveValue: 0
   uibar: {fileID: 1699335832}
 --- !u!1 &2079483090
 GameObject:

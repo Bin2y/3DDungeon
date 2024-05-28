@@ -9,6 +9,7 @@ public class Condition : MonoBehaviour
     public float maxValue;
     public float curValue;
     public float startValue;
+    public float passiveValue;
     public Image uibar;
 
     private void Start()
@@ -27,7 +28,7 @@ public class Condition : MonoBehaviour
 
     public void Add(float amount)
     {
-        curValue = Mathf.Max(curValue + amount, maxValue);
+        curValue = Mathf.Min(curValue + amount, maxValue);
     }
 
     public void Subtract(float amount)
