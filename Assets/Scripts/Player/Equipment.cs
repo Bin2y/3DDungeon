@@ -46,6 +46,7 @@ public class Equipment : MonoBehaviour
                     break;
             }
         }
+        Destroy(equipSocket.GetChild(0).gameObject);
     }
 
     private void ApplyEquipAbility()

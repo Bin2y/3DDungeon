@@ -18,8 +18,8 @@ MonoBehaviour:
   type: 0
   icon: {fileID: 0}
   dropPrefab: {fileID: 0}
-  equipPrefab: {fileID: 0}
+  equipPrefab: {fileID: 8443417549602370506, guid: 8c9ae56d326345642902fc449fca5324, type: 3}
   consumables: []
   equipables:
   - type: 1
-    value: 3
+    value: 50
