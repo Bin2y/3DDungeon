@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+//매달리는 기능 구현
 public class PlayerAction : MonoBehaviour
 {
     private PlayerCondition playerConditon;

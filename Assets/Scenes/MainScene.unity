@@ -8119,21 +8119,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item_Stairs
       objectReference: {fileID: 0}
-    - target: {fileID: 1837949619563547724, guid: 26aabb49028296841a26bcd81827189b, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 2889036038357966622, guid: 26aabb49028296841a26bcd81827189b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.57
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 2889036038357966622, guid: 26aabb49028296841a26bcd81827189b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4
+      value: 0.083
       objectReference: {fileID: 0}
     - target: {fileID: 2889036038357966622, guid: 26aabb49028296841a26bcd81827189b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.91
+      value: 21.632
       objectReference: {fileID: 0}
     - target: {fileID: 2889036038357966622, guid: 26aabb49028296841a26bcd81827189b, type: 3}
       propertyPath: m_LocalRotation.w

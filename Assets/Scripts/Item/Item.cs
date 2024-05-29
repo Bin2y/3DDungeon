@@ -23,11 +23,12 @@ public class Item : MonoBehaviour, IInteractable
                         CharacterManager.Instance.Player.UnEquipItem?.Invoke();
                         //TODO : dropItem
                     }
-                    CharacterManager.Instance.Player.equipData = itemdata; break;
+                    CharacterManager.Instance.Player.equipData = itemdata;
+                    CharacterManager.Instance.Player.equipItem?.Invoke();
+                    break;
                 default:
                     CharacterManager.Instance.Player.itemData = itemdata; break;
             }
-            CharacterManager.Instance.Player.equipItem?.Invoke();
             CharacterManager.Instance.Player.addItem?.Invoke();
             Destroy(gameObject);
         }

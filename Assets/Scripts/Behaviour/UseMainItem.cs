@@ -5,10 +5,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 //현재 장착중인 아이템을 사용
+//놓을 수 있는 아이템이면 플레이어 전방에 놓는다.
 public class UseMainItem : MonoBehaviour
 {
     private PlayerController playerController;
     private PlayerMovement playerMovement;
+    private Transform playerTransform;
 
     private ItemData itemData;
 
@@ -17,7 +19,7 @@ public class UseMainItem : MonoBehaviour
 
     private void Awake()
     {
-        playerMovement = GetComponent<PlayerMovement>();    
+        playerMovement = GetComponent<PlayerMovement>();
         playerController = GetComponent<PlayerController>();
     }
 
@@ -29,8 +31,17 @@ public class UseMainItem : MonoBehaviour
     private void UseItem()
     {
         itemData = CharacterManager.Instance.Player.itemData;
+
+        if (itemData.type == ItemType.Placeable)
+        {
+            PlaceItem();
+            CharacterManager.Instance.Player.itemData = null;
+            return;
+        }
+
         if (itemData.type != ItemType.Consumable) return;
-    
+
+
         for (int i = 0; i < itemData.consumables.Length; i++)
         {
             switch (itemData.consumables[i].type)
@@ -50,6 +61,12 @@ public class UseMainItem : MonoBehaviour
         CharacterManager.Instance.Player.itemData = null;
     }
 
+    private void PlaceItem()
+    {
+        GameObject placeItem = itemData.placePrefab;
+        Instantiate(placeItem, gameObject.transform.position + transform.forward - transform.up, Quaternion.identity);
+    }
+
     private IEnumerator DoubleJumpEvent()
     {
         playerMovement.SubDoubleJump();
@@ -57,7 +74,6 @@ public class UseMainItem : MonoBehaviour
         playerMovement.CancleSubDoubleJump();
     }
 
-    //TODO : 부스트기능이랑 아이템 사용 기능이랑 분리해보기?
     IEnumerator Boost(float value)
     {
         float tempMoveSpeed = playerMovement.moveSpeed;
