@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private PlayerController controller;
+    public PlayerController controller;
     public PlayerCondition condition;
     public PlayerMovement movement;
+    public Rigidbody _rigidbody;
 
     public ItemData itemData;
     public ItemData equipData;
@@ -22,5 +23,6 @@ public class Player : MonoBehaviour
         controller = GetComponent<PlayerController>();
         condition = GetComponent<PlayerCondition>();
         movement = GetComponent<PlayerMovement>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 }

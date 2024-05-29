@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -14,7 +15,10 @@ public class PlayerController : MonoBehaviour
     public event Action OnViewToggleEvent;
     public event Action OnJumpEvent;
     public event Action<bool> OnWallWalkEvent;
+    public event Action OnChargeEvent;
 
+
+    float endTime = 0;
     Vector2 curMovementInput;
     Vector2 mouseDelta;
 
@@ -68,15 +72,25 @@ public class PlayerController : MonoBehaviour
         {
             CallWallWalkEvent(true);
         }
-        else if(context.phase == InputActionPhase.Canceled)
+        else if (context.phase == InputActionPhase.Canceled)
         {
             CallWallWalkEvent(false);
         }
     }
 
+    public void OnCharge(InputAction.CallbackContext context)
+    {
+        CallChargeEvent();
+    }
+
+    private void CallChargeEvent()
+    {
+        OnChargeEvent?.Invoke();
+    }
+
     private void CallWallWalkEvent(bool canWallWalk)
     {
-        OnWallWalkEvent?.Invoke(canWallWalk);  
+        OnWallWalkEvent?.Invoke(canWallWalk);
     }
 
     private void CallJumpEvent()
