@@ -77,7 +77,6 @@ public class LauncherPlatform : MonoBehaviour
         if (chargeTime > maxChargeTime)
             chargeTime = maxChargeTime;
         launcherDirection = (playerTransform.right + playerTransform.up).normalized;
-        Debug.Log(playerTransform.forward+ " " + playerTransform.up);
         playerRigidbody.velocity = Vector3.zero;
         playerRigidbody.AddForce(launcherDirection * launcherPower * chargeTime,ForceMode.Impulse);
     }

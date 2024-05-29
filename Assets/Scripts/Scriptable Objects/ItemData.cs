@@ -11,7 +11,8 @@ public enum ItemType
     Consumable,
     Resource,
     Interactable,
-    Object
+    Object,
+    Placeable
 }
 
 public enum ConsumableType
@@ -51,6 +52,9 @@ public class ItemData : ScriptableObject
     public ItemType type;
     public Sprite icon;
     public GameObject dropPrefab;
+
+    [Header("Place")]
+    public GameObject placePrefab;
 
     [Header("Equip")]
     public GameObject equipPrefab;
