@@ -47,6 +47,7 @@ public class LauncherPlatform : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerController.OnChargeEvent -= Charge;
+            isCharge = false;
         }
     }
     private void FixedUpdate()
@@ -54,7 +55,6 @@ public class LauncherPlatform : MonoBehaviour
         if (isCharge)
         {
             chargeTime += Time.deltaTime;
-            Debug.Log("기모으기 : " + chargeTime);
         }
     }
     private void Charge()
@@ -76,7 +76,9 @@ public class LauncherPlatform : MonoBehaviour
         if (chargeTime < minChargeTime) return;
         if (chargeTime > maxChargeTime)
             chargeTime = maxChargeTime;
-        launcherDirection = (playerTransform.forward + playerTransform.up).normalized;
+        launcherDirection = (playerTransform.right + playerTransform.up).normalized;
+        Debug.Log(playerTransform.forward+ " " + playerTransform.up);
+        playerRigidbody.velocity = Vector3.zero;
         playerRigidbody.AddForce(launcherDirection * launcherPower * chargeTime,ForceMode.Impulse);
     }
 }
