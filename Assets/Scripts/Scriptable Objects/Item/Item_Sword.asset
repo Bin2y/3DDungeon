@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95340f3119a4ddc4fbcaf9842f3939c5, type: 3}
-  m_Name: Stairs
+  m_Name: Item_Sword
   m_EditorClassIdentifier: 
-  itemName: "\uC0AC\uB2E4\uB9AC"
-  itemDesc: "\uC124\uCE58\uD558\uBA74 \uC62C\uB77C\uAC08 \uC218 \uC788\uB2E4."
-  type: 5
-  icon: {fileID: 21300000, guid: 13a3cc046f4c0fd4f9a6c239bf81ffd1, type: 3}
+  itemName: "\uD3C9\uBC94\uD55C \uCE7C"
+  itemDesc: "\uB4E4\uACE0\uC788\uC73C\uBA74 \uAD49\uC7A5\uD788 \uB192\uC774 \uB6F8
+    \uC218 \uC788\uC744 \uAC83 \uAC19\uB2E4."
+  type: 0
+  icon: {fileID: 0}
   dropPrefab: {fileID: 0}
-  placePrefab: {fileID: 248326366823857716, guid: 29505e7f0c8208043af2face2facf5dd, type: 3}
-  equipPrefab: {fileID: 0}
+  equipPrefab: {fileID: 8443417549602370506, guid: 8c9ae56d326345642902fc449fca5324, type: 3}
   consumables: []
-  equipables: []
+  equipables:
+  - type: 1
+    value: 50

@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95340f3119a4ddc4fbcaf9842f3939c5, type: 3}
-  m_Name: Box
+  m_Name: Item_Stairs
   m_EditorClassIdentifier: 
-  itemName: "\uB098\uBB34\uC0C1\uC790"
-  itemDesc: "\uD3C9\uBC94\uD55C \uB098\uBB34\uC0C1\uC790\uC785\uB2C8\uB2E4."
-  type: 2
+  itemName: "\uC0AC\uB2E4\uB9AC"
+  itemDesc: "\uC124\uCE58\uD558\uBA74 \uC62C\uB77C\uAC08 \uC218 \uC788\uB2E4."
+  type: 5
+  icon: {fileID: 21300000, guid: 13a3cc046f4c0fd4f9a6c239bf81ffd1, type: 3}
   dropPrefab: {fileID: 0}
+  placePrefab: {fileID: 248326366823857716, guid: 29505e7f0c8208043af2face2facf5dd, type: 3}
   equipPrefab: {fileID: 0}
+  consumables: []
+  equipables: []

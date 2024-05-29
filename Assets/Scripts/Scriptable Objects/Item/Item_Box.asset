@@ -10,16 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95340f3119a4ddc4fbcaf9842f3939c5, type: 3}
-  m_Name: Sword
+  m_Name: Item_Box
   m_EditorClassIdentifier: 
-  itemName: "\uD3C9\uBC94\uD55C \uCE7C"
-  itemDesc: "\uB4E4\uACE0\uC788\uC73C\uBA74 \uAD49\uC7A5\uD788 \uB192\uC774 \uB6F8
-    \uC218 \uC788\uC744 \uAC83 \uAC19\uB2E4."
-  type: 0
-  icon: {fileID: 0}
+  itemName: "\uB098\uBB34\uC0C1\uC790"
+  itemDesc: "\uD3C9\uBC94\uD55C \uB098\uBB34\uC0C1\uC790\uC785\uB2C8\uB2E4."
+  type: 2
   dropPrefab: {fileID: 0}
-  equipPrefab: {fileID: 8443417549602370506, guid: 8c9ae56d326345642902fc449fca5324, type: 3}
-  consumables: []
-  equipables:
-  - type: 1
-    value: 50
+  equipPrefab: {fileID: 0}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95340f3119a4ddc4fbcaf9842f3939c5, type: 3}
-  m_Name: Axe
+  m_Name: Item_Axe
   m_EditorClassIdentifier: 
   itemName: "\uB3C4\uB07C"
   itemDesc: "\uC774\uC0C1\uD558\uAC8C \uBAB8\uC774 \uAC00\uBCBC\uC6CC\uC9C0\uB294
