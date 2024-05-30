@@ -22,7 +22,10 @@ public class PlayerController : MonoBehaviour
 
     Vector2 curMovementInput;
     Vector2 mouseDelta;
-
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
