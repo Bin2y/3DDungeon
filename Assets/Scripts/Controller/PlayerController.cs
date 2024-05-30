@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public event Action<bool> OnWallWalkEvent;
     public event Action OnChargeEvent;
     public event Action OnSavePointEvent;
+    public event Action DropWeaponEvent;
 
 
     Vector2 curMovementInput;
@@ -85,9 +86,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnSavePoint(InputAction.CallbackContext context)
     {
-        CallSavePointEvent();
+        if(context.phase == InputActionPhase.Started)
+            CallSavePointEvent();
+    }
+    public void OnDropWeapon(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+            CallDropWeaponEvent();
     }
 
+    public void CallDropWeaponEvent()
+    {
+        DropWeaponEvent?.Invoke();
+    }
     public void CallSavePointEvent()
     {
         OnSavePointEvent?.Invoke();

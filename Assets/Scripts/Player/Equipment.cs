@@ -6,6 +6,7 @@ using UnityEngine;
 public class Equipment : MonoBehaviour
 {
     private Player player;
+    private PlayerController controller;
     [SerializeField] private Transform equipSocket;
 
     ItemData equipData;
@@ -13,6 +14,7 @@ public class Equipment : MonoBehaviour
     private void Awake()
     {
         player = GetComponent<Player>();
+        controller = GetComponent<PlayerController>();
     }
 
     private void Start()
@@ -20,6 +22,7 @@ public class Equipment : MonoBehaviour
         player.equipItem += NewEquip;
         player.equipItem += ApplyEquipAbility;
         player.UnEquipItem += UnEquip;
+        controller.DropWeaponEvent += UnEquip;
     }
 
     
@@ -33,6 +36,7 @@ public class Equipment : MonoBehaviour
 
     private void UnEquip()
     {
+        if (player.equipData == null) return;
         equipData = player.equipData;
         for (int i = 0; i < equipData.equipables.Length; i++)
         {
@@ -46,8 +50,13 @@ public class Equipment : MonoBehaviour
                     break;
             }
         }
-        Destroy(equipSocket.GetChild(0).gameObject);
+        if (equipSocket.childCount != 0)
+        {
+            player.equipData = null;
+            Destroy(equipSocket.GetChild(0).gameObject);
+        }
     }
+
 
     private void ApplyEquipAbility()
     {
