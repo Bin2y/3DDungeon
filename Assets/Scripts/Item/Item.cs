@@ -7,6 +7,8 @@ public class Item : MonoBehaviour, IInteractable
     public ItemData itemdata;
     public string GetInteractPrompt()
     {
+        if (itemdata.type == ItemType.Interactable)
+            return $"E키를 눌러 {itemdata.itemDesc}";
         return $"{itemdata.itemName}\n{itemdata.itemDesc}";
     }
 
@@ -25,6 +27,8 @@ public class Item : MonoBehaviour, IInteractable
                     }
                     CharacterManager.Instance.Player.equipData = itemdata;
                     CharacterManager.Instance.Player.equipItem?.Invoke();
+                    break;
+                case ItemType.Interactable:
                     break;
                 default:
                     CharacterManager.Instance.Player.itemData = itemdata; break;

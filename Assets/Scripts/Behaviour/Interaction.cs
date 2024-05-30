@@ -35,10 +35,11 @@ public class Interaction : MonoBehaviour
             lastCheckTime = Time.time;
             Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;
-            
-            //Debug.Log(LayerMask.NameToLayer("Interactable"));
+
+
             if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
             {
+
                 curInteractGameObject = hit.collider.gameObject;
                 curInteractable = hit.collider.GetComponent<IInteractable>();
                 SetPromptText();
