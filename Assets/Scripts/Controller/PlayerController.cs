@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
     public event Action OnJumpEvent;
     public event Action<bool> OnWallWalkEvent;
     public event Action OnChargeEvent;
+    public event Action OnSavePointEvent;
 
 
-    float endTime = 0;
     Vector2 curMovementInput;
     Vector2 mouseDelta;
 
@@ -83,6 +83,15 @@ public class PlayerController : MonoBehaviour
         CallChargeEvent();
     }
 
+    public void OnSavePoint(InputAction.CallbackContext context)
+    {
+        CallSavePointEvent();
+    }
+
+    private void CallSavePointEvent()
+    {
+        OnSavePointEvent?.Invoke();
+    }
     private void CallChargeEvent()
     {
         OnChargeEvent?.Invoke();

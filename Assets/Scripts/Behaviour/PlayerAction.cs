@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-//매달리는 기능 구현
+//플레이어 액션에 대해서 구현
 public class PlayerAction : MonoBehaviour
 {
     private PlayerCondition playerConditon;
@@ -38,6 +38,7 @@ public class PlayerAction : MonoBehaviour
     private void Start()
     {
         playerController.OnWallWalkEvent += IsWallWalking;
+        playerController.OnSavePointEvent += GoSavePoint;
     }
     private void CheckWall()
     {
@@ -71,5 +72,11 @@ public class PlayerAction : MonoBehaviour
         canClimb = false;
         yield return new WaitForSeconds(coolDown);
         canClimb = true;
+    }
+
+    private void GoSavePoint()
+    {
+        if (CharacterManager.Instance.Player.savePoint == null) return;
+        gameObject.transform.position = CharacterManager.Instance.Player.savePoint + new Vector3(0,1,0);
     }
 }

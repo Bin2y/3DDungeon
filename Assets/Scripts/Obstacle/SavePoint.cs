@@ -9,6 +9,7 @@ public class SavePoint : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             CharacterManager.Instance.Player.savePoint = transform.position;
+            Destroy(gameObject);
         }
     }
 }

@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "SlowTap(duration=2)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GoSavePoint",
+                    "type": "Button",
+                    "id": "f1ed9e1f-c2de-4404-8df5-d7e370b5185b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -208,6 +217,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Launch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4b0024de-296d-455d-8f4e-40e27bce3d35",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GoSavePoint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
