@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         CallSavePointEvent();
     }
 
-    private void CallSavePointEvent()
+    public void CallSavePointEvent()
     {
         OnSavePointEvent?.Invoke();
     }

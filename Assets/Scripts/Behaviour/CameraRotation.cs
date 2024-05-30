@@ -14,6 +14,7 @@ public class CameraRotation : MonoBehaviour
     [SerializeField] private float minXLook, maxXLook;
     [SerializeField] private float lookSensitivity;
     [SerializeField] private Transform cameraContainer;
+    private Vector3 originCameraPos;
 
     [Header("Thrid Person View")]
     public float camPosX3rd;
@@ -28,13 +29,14 @@ public class CameraRotation : MonoBehaviour
     {
         playerController.OnLookEvent += Look;
         playerController.OnViewToggleEvent += ViewToggle;
+        originCameraPos = cameraContainer.localPosition;
     }
 
     private void ViewToggle()
     {
         if (isThridPerson)
         {
-            cameraContainer.localPosition = new Vector3(0, 0, 0);
+            cameraContainer.localPosition = originCameraPos;
             isThridPerson = false;
         }
         else

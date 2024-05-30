@@ -29,11 +29,9 @@ public class LaserTrap : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag("Player"))
             {
-                Debug.Log("닿임!");
-                //TODO : 데미지 주기 or 플레이어 사망
+                //닿으면 마지막 저장지점으로 돌아감
+                CharacterManager.Instance.Player.controller.CallSavePointEvent();
             }
-            
-            //TODO : 데미지 주기 or 플레이어 사망
         }
     }
 }
