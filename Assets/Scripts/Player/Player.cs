@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class Player : MonoBehaviour
     public Action addItem;
     public Action equipItem;
     public Action UnEquipItem;
+
+    //세이브 포인트
+    public Vector3 savePoint;
     private void Awake()
     {
         CharacterManager.Instance.Player = this;
